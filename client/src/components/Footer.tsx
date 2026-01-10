@@ -1,5 +1,5 @@
 import { footerData } from '../data/footer';
-import { DribbbleIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from 'lucide-react';
+import { DribbbleIcon, GithubIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from 'lucide-react';
 import { motion } from 'motion/react';
 import type { IFooterLink } from '../types';
 import { Link } from 'react-router-dom';
@@ -29,6 +29,9 @@ export default function Footer() {
             <motion.div className='flex flex-col max-md:items-center max-md:text-center gap-2 items-end' initial={{ x: 150, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 280, damping: 70, mass: 1 }}>
                 <p className='max-w-60'>Making every customer feel valued—no matter the size of your audience.</p>
                 <div className='flex items-center gap-4 mt-3'>
+                    <a href='https://github.com/im-coderavi' target='_blank' rel='noreferrer'>
+                        <GithubIcon className='size-5 hover:text-pink-500' />
+                    </a>
                     <a href='#' target='_blank' rel='noreferrer'>
                         <DribbbleIcon className='size-5 hover:text-pink-500' />
                     </a>
@@ -44,6 +47,9 @@ export default function Footer() {
                 </div>
                 <p className='mt-3 text-center'>
                     &copy; {new Date().getFullYear()} <a href='#'>Thumblify - Avishek Giri</a>
+                </p>
+                <p className='mt-1 text-center'>
+                    Made by <a href='https://github.com/im-coderavi' className='text-pink-400 hover:underline'>Avishek Giri</a>
                 </p>
             </motion.div>
         </footer>
