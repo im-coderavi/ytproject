@@ -22,7 +22,7 @@ export default function PricingSection() {
                             <p className="absolute px-3 text-sm -top-3.5 left-3.5 py-1 bg-pink-400 rounded-full">Most Popular</p>
                         )}
                         <p className="font-semibold">{plan.name}</p>
-                        <h1 className="text-3xl font-semibold">${plan.price}<span className="text-gray-500 font-normal text-sm">/{plan.period}</span></h1>
+                        <h1 className="text-3xl font-semibold">₹{plan.price}<span className="text-gray-500 font-normal text-sm">/{plan.period}</span></h1>
                         <ul className="list-none text-slate-300 mt-6 space-y-2">
                             {plan.features.map((feature, index) => (
                                 <li key={index} className="flex items-center gap-2">

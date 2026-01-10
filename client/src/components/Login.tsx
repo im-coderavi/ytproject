@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import SoftBackdrop from './SoftBackdrop';
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const [state, setState] = useState('login');
+    const location = useLocation()
+    const [state, setState] = useState(location.state?.state || 'login');
     const { user, login, signUp } = useAuth();
 
     const navigate = useNavigate();
