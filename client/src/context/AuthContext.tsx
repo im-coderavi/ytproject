@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const signUp = async ({ name, email, password }: { name: string; email: string; password: string }) => {
         try {
-            const { data } = await api.post('/api/auth/register', { name, email, password });
+            const { data } = await api.post('/auth/register', { name, email, password });
             if (data.user) {
                 setUser(data.user as IUser);
                 setIsLoggedIn(true);
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const login = async ({ email, password }: { email: string; password: string }) => {
         try {
-            const { data } = await api.post('/api/auth/login', { email, password });
+            const { data } = await api.post('/auth/login', { email, password });
             if (data.user) {
                 setUser(data.user as IUser);
                 setIsLoggedIn(true);
@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const logout = async () => {
         try {
-            const { data } = await api.post('/api/auth/logout');
+            const { data } = await api.post('/auth/logout');
             setUser(null);
             setIsLoggedIn(false);
             toast.success(data.message);
@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const fetchUser = async () => {
         try {
-            const { data } = await api.get('/api/auth/verify');
+            const { data } = await api.get('/auth/verify');
             if (data.user) {
                 setUser(data.user as IUser);
                 setIsLoggedIn(true);

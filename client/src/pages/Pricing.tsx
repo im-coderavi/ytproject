@@ -40,7 +40,7 @@ export default function Pricing() {
     const handleUpgrade = async (tier: string) => {
         try {
             const { data } = await axios.post(
-                import.meta.env.VITE_API_URL + '/api/subscription/upgrade',
+                import.meta.env.VITE_BASE_URL + '/subscription/upgrade',
                 { tier },
                 { withCredentials: true }
             );
@@ -127,7 +127,7 @@ export default function Pricing() {
                                         createOrder={async (data, actions) => {
                                             try {
                                                 const response = await axios.post(
-                                                    import.meta.env.VITE_API_URL + '/api/subscription/create-order',
+                                                    import.meta.env.VITE_BASE_URL + '/subscription/create-order',
                                                     { tier: plan.tier },
                                                     { withCredentials: true }
                                                 );
@@ -141,7 +141,7 @@ export default function Pricing() {
                                         onApprove={async (data, actions) => {
                                             try {
                                                 const response = await axios.post(
-                                                    import.meta.env.VITE_API_URL + '/api/subscription/capture-order',
+                                                    import.meta.env.VITE_BASE_URL + '/subscription/capture-order',
                                                     { orderId: data.orderID, tier: plan.tier },
                                                     { withCredentials: true }
                                                 );
