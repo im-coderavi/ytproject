@@ -15,12 +15,12 @@ interface AuthContextProps {
 
 const AuthContext = createContext<AuthContextProps>({
     isLoggedIn: false,
-    setIsLoggedIn: () => {},
+    setIsLoggedIn: () => { },
     user: null,
-    setUser: () => {},
-    login: async () => {},
-    signUp: async () => {},
-    logout: async () => {},
+    setUser: () => { },
+    login: async () => { },
+    signUp: async () => { },
+    logout: async () => { },
 });
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             }
             toast.success(data.message);
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     };
 
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             }
             toast.success(data.message);
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     };
 
@@ -60,7 +60,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             setIsLoggedIn(false);
             toast.success(data.message);
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     };
 
@@ -72,7 +72,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                 setIsLoggedIn(true);
             }
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     };
 

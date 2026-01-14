@@ -52,6 +52,8 @@ export interface IThumbnail {
 export interface IUser {
     name: string;
     email: string;
+    subscriptionTier?: 'Free' | 'Premium' | 'Premium Pro';
+    thumbnailCount?: number;
     password?: string;
     createdAt?: Date;
     updatedAt?: Date;
