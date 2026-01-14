@@ -29,14 +29,25 @@ export default function Navbar() {
                     <Link to='/generate' className='hover:text-pink-300 transition'>
                         Generate
                     </Link>
+
                     {isLoggedIn ? (
-                        <Link to='/my-generation' className='hover:text-pink-300 transition'>
-                            My Generations
-                        </Link>
+                        <>
+                            <Link to='/my-generation' className='hover:text-pink-300 transition'>
+                                My Generations
+                            </Link>
+                            <Link to='/pricing' className='hover:text-pink-300 transition'>
+                                Pricing
+                            </Link>
+                        </>
                     ) : (
-                        <Link to='#' className='hover:text-pink-300 transition'>
-                            About
-                        </Link>
+                        <>
+                            <Link to='/pricing' className='hover:text-pink-300 transition'>
+                                Pricing
+                            </Link>
+                            <Link to='#' className='hover:text-pink-300 transition'>
+                                About
+                            </Link>
+                        </>
                     )}
 
                     <Link to='#' className='hover:text-pink-300 transition'>
@@ -47,10 +58,48 @@ export default function Navbar() {
                     {isLoggedIn ? (
                         <div className='relative group'>
                             <button className='rounded-full size-8 bg-white/20 border-2 border-white/10'>{user?.name.charAt(0).toUpperCase()}</button>
-                            <div className='absolute hidden group-hover:block top-6 right-0 pt-4'>
-                                <button onClick={() => logout()} className=' bg-white/20 border-2 border-white/10 px-5 py-1.5 rounded'>
-                                    Logout
-                                </button>
+                            <div className='absolute hidden group-hover:block top-6 right-0 pt-4 w-64'>
+                                <div className='bg-zinc-900 border-2 border-white/10 p-4 rounded-xl shadow-lg flex flex-col gap-3'>
+                                    <div className='flex items-center gap-3 pb-3 border-b border-white/10'>
+                                        <div className='rounded-full size-10 bg-pink-600 flex items-center justify-center text-lg font-bold'>
+                                            {user?.name.charAt(0).toUpperCase()}
+                                        </div>
+                                        <div>
+                                            <p className='font-medium truncate'>{user?.name}</p>
+                                            <p className='text-xs text-gray-400 truncate'>{user?.email}</p>
+                                        </div>
+                                    </div>
+
+                                    <div className='bg-white/5 p-3 rounded-lg'>
+                                        <div className='flex justify-between items-center mb-2'>
+                                            <span className='text-xs text-gray-400'>Current Plan</span>
+                                            <span className='text-xs font-bold text-pink-500 bg-pink-500/10 px-2 py-0.5 rounded-full'>
+                                                {user?.subscriptionTier || 'Free'}
+                                            </span>
+                                        </div>
+                                        <div className='flex justify-between items-center mb-1'>
+                                            <span className='text-xs text-gray-400'>Generations</span>
+                                            <span className='text-xs font-medium'>
+                                                {user?.thumbnailCount || 0} / {user?.subscriptionTier === 'Premium' ? 100 : user?.subscriptionTier === 'Premium Pro' ? '∞' : 5}
+                                            </span>
+                                        </div>
+                                        <div className='w-full bg-white/10 h-1.5 rounded-full overflow-hidden'>
+                                            <div
+                                                className='bg-pink-500 h-full rounded-full transition-all'
+                                                style={{
+                                                    width: `${Math.min(((user?.thumbnailCount || 0) / (user?.subscriptionTier === 'Premium' ? 100 : 5)) * 100, 100)}%`
+                                                }}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <Link to='/profile' className='block w-full text-center bg-white/10 hover:bg-white/20 px-5 py-2 rounded-lg text-sm transition mb-2'>
+                                        Profile
+                                    </Link>
+                                    <button onClick={() => logout()} className='w-full bg-white/10 hover:bg-white/20 px-5 py-2 rounded-lg text-sm transition'>
+                                        Logout
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     ) : (

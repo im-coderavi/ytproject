@@ -49,7 +49,7 @@ const Generate = () => {
                 toast.success(data.message);
             }
         } catch (error: any) {
-            console.log(error);
+            console.error(error);
             toast.error(error?.response?.data?.message || error.message);
         }
     };
@@ -65,7 +65,7 @@ const Generate = () => {
             setAspectRatio(data?.thumbnail?.aspect_ratio);
             setStyle(data?.thumbnail?.style);
         } catch (error: any) {
-            console.log(error);
+            console.error(error);
             toast.error(error?.response?.data?.message || error.message);
         }
     };

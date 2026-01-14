@@ -8,6 +8,8 @@ import Generate from './pages/Generate';
 import MyGeneration from './pages/MyGeneration';
 import YtPreview from './pages/YtPreview';
 import Login from './components/Login';
+import Pricing from './pages/Pricing';
+import Profile from './pages/Profile';
 import { useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 
@@ -29,6 +31,8 @@ export default function App() {
                 <Route path='/generate/:id' element={<Generate />} />
                 <Route path='/my-generation' element={<MyGeneration />} />
                 <Route path='/preview' element={<YtPreview />} />
+                <Route path='/pricing' element={<Pricing />} />
+                <Route path='/profile' element={<Profile />} />
                 <Route path='/login' element={<Login />} />
             </Routes>
             <Footer />
