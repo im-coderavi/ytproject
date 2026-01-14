@@ -43,7 +43,7 @@ const Generate = () => {
                 text_overlay: true,
             };
 
-            const { data } = await api.post('/api/thumbnail/generate', api_payload);
+            const { data } = await api.post('/thumbnail/generate', api_payload);
             if (data.thumbnail) {
                 navigate('/generate/' + data.thumbnail._id);
                 toast.success(data.message);
@@ -56,7 +56,7 @@ const Generate = () => {
 
     const fetchThumbnail = async () => {
         try {
-            const { data } = await api.get(`/api/user/thumbnail/${id}`);
+            const { data } = await api.get(`/user/thumbnail/${id}`);
             setThumbnail(data?.thumbnail as IThumbnail);
             setLoading(!data?.thumbnail?.image_url);
             setAdditionalDetails(data?.thumbnail?.user_prompt);

@@ -23,7 +23,7 @@ const MyGeneration = () => {
     const fetchThumbnails = async () => {
         try {
             setLoading(true);
-            const { data } = await api.get('/api/user/thumbnails');
+            const { data } = await api.get('/user/thumbnails');
             setThumbnails(data.thumbnails || []);
         } catch (error: any) {
             console.error(error);
@@ -45,7 +45,7 @@ const MyGeneration = () => {
         try {
             const confirm = window.confirm('Are you sure you want to delete this thumbnail?');
             if (!confirm) return;
-            const { data } = await api.delete(`/api/thumbnail/delete/${id}`);
+            const { data } = await api.delete(`/thumbnail/delete/${id}`);
             toast.success(data.message);
             setThumbnails(thumbnails.filter((t) => t._id !== id));
         } catch (error: any) {
