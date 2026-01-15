@@ -57,8 +57,13 @@ export default function Navbar() {
                 <div className='flex items-center gap-2'>
                     {isLoggedIn ? (
                         <div className='relative group'>
-                            <button className='rounded-full size-8 bg-white/20 border-2 border-white/10'>{user?.name.charAt(0).toUpperCase()}</button>
-                            <div className='absolute hidden group-hover:block top-6 right-0 pt-4 w-64'>
+                            <button
+                                onClick={() => navigate('/profile')}
+                                className='rounded-full size-8 bg-white/20 border-2 border-white/10 md:cursor-default'
+                            >
+                                {user?.name.charAt(0).toUpperCase()}
+                            </button>
+                            <div className='absolute hidden md:group-hover:block top-6 right-0 pt-4 w-64'>
                                 <div className='bg-zinc-900 border-2 border-white/10 p-4 rounded-xl shadow-lg flex flex-col gap-3'>
                                     <div className='flex items-center gap-3 pb-3 border-b border-white/10'>
                                         <div className='rounded-full size-10 bg-pink-600 flex items-center justify-center text-lg font-bold'>
