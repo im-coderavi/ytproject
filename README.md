@@ -1,4 +1,4 @@
-﻿# AI YouTube Thumbnail Generator  
+﻿# AI YouTube Thumbnail Generator
 
 A powerful MERN stack application that leverages Google's Gemini AI to generate professional, click-worthy YouTube thumbnails. Create stunning visual assets tailored to your video's content with customizable styles, color schemes, and overlay text.
 
